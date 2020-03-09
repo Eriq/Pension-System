@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openTabContrib" text="Contributions" />
+                        <MenuItem mnemonicParsing="false" onAction="#openTabParticipant" text="Participants" />
+                        <MenuItem mnemonicParsing="false" onAction="#openTabScheme" text="Pension Schemes" />
+                        <MenuItem mnemonicParsing="false" onAction="#openTabVesting" text="Vesting Options" />
+                        <MenuItem mnemonicParsing="false" onAction="#openTabPayout" text="Payout Options" />
+                        <MenuItem mnemonicParsing="false" onAction="#openTabInvestment" text="Investments" />
+                        <MenuItem mnemonicParsing="false" onAction="#openTabReports" text="Reports" />
+                        <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#onClickedCloseBtn" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+        <TabPane fx:id="mainTab" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="participantsTab" text="Participants">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                            <children>
+                                <SplitPane dividerPositions="0.7" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="898.0">
+                                 <children>
+                                    <TableView fx:id="tableParticipants" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                                          <TableColumn fx:id="fnameCol" prefWidth="75.0" text="F Name" />
+                                          <TableColumn fx:id="lnameCol" prefWidth="75.0" text="L Name" />
+                                          <TableColumn fx:id="dobCol" prefWidth="75.0" text="Date of Birth" />
+                                          <TableColumn fx:id="incomeCol" prefWidth="75.0" text="Annual Salary" />
+                                          <TableColumn fx:id="empCol" prefWidth="75.0" text="Emp Date" />
+                                          <TableColumn fx:id="retCol" prefWidth="75.0" text="Ret Date" />
+                                          <TableColumn fx:id="schemeCol" prefWidth="75.0" text="Scheme" />
+                                          <TableColumn fx:id="vestCol" prefWidth="75.0" text="Vesting" />
+                                          <TableColumn fx:id="investCol" prefWidth="75.0" text="Investment" />
+                                          <TableColumn fx:id="detailsCol" prefWidth="75.0" text="Details" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="898.0">
+                                 <children>
+                                    <TextField fx:id="editFname" layoutX="123.0" layoutY="14.0" />
+                                    <TextField fx:id="editLname" layoutX="123.0" layoutY="48.0" />
+                                    <TextField fx:id="editSalary" layoutX="123.0" layoutY="83.0" />
+                                    <Label layoutX="14.0" layoutY="18.0" text="First Name" />
+                                    <Label layoutX="14.0" layoutY="52.0" text="Last Name" />
+                                    <Label layoutX="14.0" layoutY="87.0" text="Annual Salary" />
+                                    <Label layoutX="323.0" layoutY="19.0" text="Employment Date" />
+                                    <Label layoutX="326.0" layoutY="53.0" text="Retirement Date" />
+                                    <Label layoutX="326.0" layoutY="87.0" text="Scheme ID" />
+                                    <Button fx:id="clearPart" layoutX="685.0" layoutY="108.0" mnemonicParsing="false" onAction="#clearParticipant" text="Clear Fields" />
+                                    <DatePicker fx:id="editEmpDate" layoutX="466.0" layoutY="14.0" prefHeight="25.0" prefWidth="148.0" />
+                                    <DatePicker fx:id="editDob" layoutX="123.0" layoutY="116.0" prefHeight="25.0" prefWidth="148.0" />
+                                    <Label layoutX="14.0" layoutY="121.0" text="Date of Birth" />
+                                    <Label layoutX="329.0" layoutY="121.0" text="Investment ID" />
+                                    <Label layoutX="657.0" layoutY="18.0" text="Vesting ID" />
+                                    <TextField fx:id="editInvestment" layoutX="468.0" layoutY="116.0" />
+                                    <TextField fx:id="editScheme" layoutX="467.0" layoutY="82.0" />
+                                    <TextField fx:id="editVesting" layoutX="737.0" layoutY="13.0" prefHeight="26.0" prefWidth="140.0" />
+                                    <DatePicker fx:id="editRetDate" layoutX="468.0" layoutY="51.0" prefHeight="25.0" prefWidth="148.0" />
+                                    <TextField fx:id="editId" editable="false" layoutX="690.0" layoutY="59.0" prefHeight="26.0" prefWidth="33.0" />
+                                    <Label layoutX="660.0" layoutY="64.0" text="ID" />
+                                    <Button fx:id="addNewParticipant" layoutX="800.0" layoutY="108.0" mnemonicParsing="false" onAction="#addNewParticipant" text="Add New" />
+                                    <Button fx:id="updateBtnParticipant" layoutX="736.0" layoutY="59.0" mnemonicParsing="false" onAction="#updateParticipant" text="Update" />
+                                    <Button fx:id="deleteBtnParticipant" layoutX="817.0" layoutY="59.0" mnemonicParsing="false" onAction="#deleteParticipant" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="schemesTab" text="Schemes">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.7" orientation="VERTICAL">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="898.0">
+                                 <children>
+                                    <TableView fx:id="tableSchemes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="schemeIdCol" prefWidth="75.0" text="ID" />
+                                          <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
+                                          <TableColumn fx:id="rateCol" prefWidth="75.0" text="Contribution Rate" />
+                                          <TableColumn fx:id="schemeDetCol" prefWidth="75.0" text="Details" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="898.0">
+                                 <children>
+                                    <TextField fx:id="editSchemeName" layoutX="276.0" layoutY="14.0" />
+                                    <TextField fx:id="editSchemeRate" layoutX="276.0" layoutY="55.0" />
+                                    <TextField fx:id="editSchemeDet" layoutX="275.0" layoutY="96.0" />
+                                    <Label layoutX="112.0" layoutY="18.0" text="Name" />
+                                    <Label layoutX="112.0" layoutY="59.0" text="Contributon rate (% pa)" />
+                                    <Label layoutX="112.0" layoutY="100.0" text="Details" />
+                                    <Button fx:id="updateScheme" layoutX="604.0" layoutY="14.0" mnemonicParsing="false" text="Update" />
+                                    <Button fx:id="addNewScheme" layoutX="685.0" layoutY="75.0" mnemonicParsing="false" text="Add New" />
+                                    <TextField fx:id="editSchemeId" editable="false" layoutX="543.0" layoutY="14.0" prefHeight="26.0" prefWidth="40.0" />
+                                    <Label layoutX="501.0" layoutY="19.0" text="ID" />
+                                    <Button fx:id="clearScheme" layoutX="552.0" layoutY="75.0" mnemonicParsing="false" text="Clear Fields" />
+                                    <Button fx:id="deleteScheme" layoutX="698.0" layoutY="14.0" mnemonicParsing="false" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            <Tab fx:id="investmentsTab" text="Investments">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.7" orientation="VERTICAL">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="898.0">
+                                 <children>
+                                    <TableView fx:id="tableInvestments" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="investIdCol" prefWidth="75.0" text="ID" />
+                                          <TableColumn fx:id="investTypeCol" prefWidth="75.0" text="Investment" />
+                                          <TableColumn fx:id="investRetCol" prefWidth="75.0" text="Annual Returns" />
+                                          <TableColumn fx:id="investDetCol" prefWidth="75.0" text="Details" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="898.0">
+                                 <children>
+                                    <TextField fx:id="editInvestName" layoutX="307.0" layoutY="16.0" />
+                                    <TextField fx:id="editInvestRet" layoutX="307.0" layoutY="58.0" />
+                                    <TextField fx:id="editInvestDet" layoutX="307.0" layoutY="97.0" />
+                                    <Label layoutX="199.0" layoutY="18.0" text="Investment" />
+                                    <Label layoutX="196.0" layoutY="61.0" text="Returns (% pa)" />
+                                    <Label layoutX="199.0" layoutY="99.0" text="Details" />
+                                    <Button fx:id="updateInvestment" layoutX="617.0" layoutY="16.0" mnemonicParsing="false" text="Update" />
+                                    <Button fx:id="addNewInvestment" layoutX="691.0" layoutY="71.0" mnemonicParsing="false" text="Add New" />
+                                    <TextField fx:id="editInvestId" editable="false" layoutX="555.0" layoutY="16.0" prefHeight="26.0" prefWidth="39.0" />
+                                    <Label layoutX="520.0" layoutY="21.0" text="ID" />
+                                    <Button fx:id="clearInvestment" layoutX="579.0" layoutY="71.0" mnemonicParsing="false" text="Clear Fields" />
+                                    <Button fx:id="deleteInvestment" layoutX="711.0" layoutY="16.0" mnemonicParsing="false" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="payoutsTab" text="Payout Options">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.7" orientation="VERTICAL">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="898.0">
+                                 <children>
+                                    <TableView fx:id="tablePayouts" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="payIdCol" prefWidth="75.0" text="ID" />
+                                          <TableColumn fx:id="payNameCol" prefWidth="75.0" text="Option Name" />
+                                          <TableColumn fx:id="payRateCol" prefWidth="75.0" text="Payout Rate" />
+                                          <TableColumn fx:id="payDetCol" prefWidth="75.0" text="Details" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="898.0">
+                                 <children>
+                                    <TextField fx:id="editPayName" layoutX="315.0" layoutY="14.0" />
+                                    <TextField fx:id="editPayRate" layoutX="315.0" layoutY="48.0" />
+                                    <Label layoutX="208.0" layoutY="19.0" text="Option Name" />
+                                    <Label layoutX="211.0" layoutY="53.0" text="Payout Rate" />
+                                    <Label layoutX="211.0" layoutY="89.0" text="Details" />
+                                    <Button fx:id="updatePay" layoutX="634.0" layoutY="14.0" mnemonicParsing="false" text="Update" />
+                                    <TextField fx:id="editPayDet" layoutX="315.0" layoutY="84.0" />
+                                    <Button fx:id="addNewPay" layoutX="711.0" layoutY="71.0" mnemonicParsing="false" text="Add New" />
+                                    <TextField fx:id="editPayId" editable="false" layoutX="554.0" layoutY="14.0" prefHeight="26.0" prefWidth="66.0" />
+                                    <Label layoutX="521.0" layoutY="19.0" text="ID" />
+                                    <Button fx:id="clearPay" layoutX="554.0" layoutY="71.0" mnemonicParsing="false" text="Clear Fields" />
+                                    <Button fx:id="deletePay" layoutX="723.0" layoutY="14.0" mnemonicParsing="false" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="vestingTab" text="Vesting Options">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.7" orientation="VERTICAL">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="898.0">
+                                 <children>
+                                    <TableView fx:id="tableVesting" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="vestIdCol" prefWidth="75.0" text="ID" />
+                                          <TableColumn fx:id="vestTypCol" prefWidth="75.0" text="Vesting Type" />
+                                          <TableColumn fx:id="vestPerCol" prefWidth="75.0" text="Vesting Period" />
+                                          <TableColumn fx:id="vestRatCol" prefWidth="75.0" text="Vesting Rate" />
+                                          <TableColumn fx:id="vestDetCol" prefWidth="75.0" text="Details" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="898.0">
+                                 <children>
+                                    <TextField fx:id="editVestTyp" layoutX="73.0" layoutY="14.0" />
+                                    <TextField fx:id="editVestPeriod" layoutX="73.0" layoutY="58.0" />
+                                    <TextField fx:id="editVestRat" layoutX="330.0" layoutY="14.0" />
+                                    <TextField fx:id="editVestDet" layoutX="330.0" layoutY="58.0" />
+                                    <Label layoutX="24.0" layoutY="19.0" text="Type" />
+                                    <Label layoutX="19.0" layoutY="63.0" text="Period" />
+                                    <Label layoutX="287.0" layoutY="18.0" text="Rate" />
+                                    <Label layoutX="280.0" layoutY="63.0" text="Details" />
+                                    <Button fx:id="updateVest" layoutX="620.0" layoutY="14.0" mnemonicParsing="false" text="Update" />
+                                    <Button fx:id="addNewVest" layoutX="680.0" layoutY="79.0" mnemonicParsing="false" text="Add New" />
+                                    <TextField fx:id="editVestId" editable="false" layoutX="577.0" layoutY="14.0" prefHeight="26.0" prefWidth="30.0" />
+                                    <Label layoutX="537.0" layoutY="19.0" text="ID" />
+                                    <Button fx:id="clearVest" layoutX="568.0" layoutY="79.0" mnemonicParsing="false" text="Clear Fields" />
+                                    <Button fx:id="deleteVest" layoutX="696.0" layoutY="14.0" mnemonicParsing="false" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+                <Tab fx:id="contributionsTab" text="Contributions">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <SplitPane dividerPositions="0.7" orientation="VERTICAL">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="898.0">
+                                 <children>
+                                    <TableView fx:id="tableContributions" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="contribIdCol" prefWidth="75.0" text="ID" />
+                                          <TableColumn fx:id="contribPartCol" prefWidth="75.0" text="Participant" />
+                                          <TableColumn fx:id="contribAmntCol" prefWidth="75.0" text="Amount" />
+                                          <TableColumn fx:id="contribTimeCol" prefWidth="75.0" text="Timestamp" />
+                                          <TableColumn fx:id="contribDetCol" prefWidth="75.0" text="Details" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="898.0">
+                                 <children>
+                                    <TextField fx:id="editContPart" layoutX="236.0" layoutY="14.0" />
+                                    <TextField fx:id="editContAmnt" layoutX="236.0" layoutY="49.0" />
+                                    <TextField fx:id="editContDet" layoutX="236.0" layoutY="84.0" />
+                                    <Label layoutX="142.0" layoutY="18.0" text="Participant ID" />
+                                    <Label layoutX="142.0" layoutY="53.0" text="Amount" />
+                                    <Label layoutX="142.0" layoutY="88.0" text="Details" />
+                                    <Button fx:id="updateContrib" layoutX="543.0" layoutY="14.0" mnemonicParsing="false" onAction="#updateContribution" text="Update" />
+                                    <Button fx:id="addNewContrib" layoutX="634.0" layoutY="83.0" mnemonicParsing="false" onAction="#addNewContribution" text="Add New" />
+                                    <TextField fx:id="editContId" editable="false" layoutX="482.0" layoutY="14.0" prefHeight="26.0" prefWidth="49.0" />
+                                    <Label layoutX="442.0" layoutY="18.0" text="ID" />
+                                    <Button fx:id="clearContrib" layoutX="482.0" layoutY="83.0" mnemonicParsing="false" onAction="#clearContribution" text="Clear Fields" />
+                                    <Button fx:id="deleteContrib" layoutX="642.0" layoutY="13.0" mnemonicParsing="false" onAction="#deleteContribution" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="reportsTab" text="Reports">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                            <children>
+                                <SplitPane dividerPositions="0.2" layoutY="-40.0" prefHeight="529.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                                            <children>
+                                                <Button fx:id="viewBenefits" layoutX="5.0" layoutY="35.0" mnemonicParsing="false" onAction="#populateTableBenefits" prefHeight="25.0" prefWidth="166.0" text="Pension Benefits" />
+                                    <Button fx:id="viewContributions" layoutX="5.0" layoutY="84.0" mnemonicParsing="false" onAction="#populateTableBenefits" prefHeight="25.0" prefWidth="166.0" text="Pension Contributions" />
+                                    <Button fx:id="viewParticipants" layoutX="5.0" layoutY="135.0" mnemonicParsing="false" onAction="#populateTableBenefits" prefHeight="25.0" prefWidth="166.0" text="Pension Participants" />
+                                            </children></AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                                            <children>
+                                                <Pane fx:id="reportPane" layoutX="84.0" layoutY="37.0" prefHeight="457.0" prefWidth="715.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <children>
+                                                        <Label fx:id="reportTitle" layoutX="14.0" layoutY="18.0" text="Report Title" textFill="#0000cc">
+                                                            <font>
+                                                                <Font size="24.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TableView fx:id="tableBenefits" layoutY="56.0" prefHeight="479.0" prefWidth="722.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="partIdCol" prefWidth="118.0" text="Participant ID" />
+                                                                <TableColumn fx:id="fNmeCol" prefWidth="88.0" text="First Name" />
+                                                                <TableColumn fx:id="lNmeCol" prefWidth="88.0" text="Last Name" />
+                                                                <TableColumn fx:id="bnfitCol" prefWidth="88.0" text="Benefit" />
+                                                                <TableColumn fx:id="schmCol" prefWidth="88.0" text="Scheme" />
+                                                                <TableColumn fx:id="retDateCol" prefWidth="58.0" text="Ret Date" />
+                                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                                        </TableView>
+                                                    </children>
+                                                </Pane>
+                                            </children></AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+
+    </children>
+</VBox>
